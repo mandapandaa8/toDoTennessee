@@ -1,9 +1,9 @@
-.tickets {
+.places {
     display: flex;
     flex-direction: column;
 }
 
-.ticket {
+.place {
     background-color: rgb(149, 237, 208);
     border: 4px solid rgb(109, 27, 27);
     padding: 0.7rem;

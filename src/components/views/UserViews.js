@@ -1,20 +1,26 @@
-import { Outlet, Route } from "react-router-dom"
+import { Outlet, Route, Routes } from "react-router-dom"
+import { CategoryForm } from "../categories/categoryForm"
+import { MainPage } from "../MainPage.js/MainPage"
+import { PlacesForm } from "../places/PlacesForm"
 
 export const UserViews = () => {
     return (
-        <Route path="/" element={
-            <>
-                <h1>Your personalized TO DO list for the greater Tennessee</h1>
+        <Routes>
+            <Route path="/" element={
+                <>
+                    <h1>To Do: Tennessee</h1>
+                    <h2>Your personalized TO DO list for the greater Tennessee</h2>
 
-                <Outlet />
-            </>
-        }>
-            <Route path="mainPage" element={ <></> } />
-            <Route path="editPlace" element={ <></> } />
-            <Route path="addCategory" element={ <></> } />
-            <Route path="addPlace" element={ <></> } />
-            <Route path="logOut" element={ <></> } />
-            <Route path="recommended" element={ <></> } />
-        </Route>
+                    <Outlet />
+                </>
+            }>
+                <Route path="mainPage" element={ < MainPage/> } />
+                <Route path="editPlace" element={ <></> } />
+                <Route path="categoryForm" element={ < CategoryForm /> } />
+                <Route path="placeForm" element={ < PlacesForm/> } />
+                <Route path="logOut" element={ <></> } />
+                <Route path="recommended" element={ <></> } />
+            </Route>
+        </Routes>
     )
 }

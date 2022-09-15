@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 export const PlacesForm = () => {
@@ -9,75 +9,88 @@ export const PlacesForm = () => {
 
 //* for each form field, set up default values in initial state
     //* properties here will be updated each time the user interacts with description and emergency value
-    const [ticket, update] = useState({
-        description: "",
-        emergency: false
+    const [place, update] = useState({
+        id: 0,
+        visited: false,
+        placeName: "",
+        address: "",
+        comment: "",
+        goAgain: false,
+        userId: 0,
+        categoryId: 0,
     })
+    const [category, setCategory] = useState([])
+
+    useEffect(
+        () => {
+            fetch('http://localhost:8088/categories')
+            .then(response => response.json())
+            .then((categoryArray) => {
+                setCategory(categoryArray)
+            })
+        }, []
+    )
     /*
         TODO: Use the useNavigation() hook so you can redirect
         the user to the ticket list
     */
    const navigate = useNavigate()
 
-    const localHoneyUser = localStorage.getItem("honey_user")
-    const honeyUserObject = JSON.parse(localHoneyUser)
+    const localToDoUser = localStorage.getItem("toDo_user")
+    const userObject = JSON.parse(localToDoUser)
 
     //* function that will run instructions for when submit button is clicked
     const handleSaveButtonClick = (event) => {
         event.preventDefault()
-
-        // TODO: Create the object to be saved to the API
         
-           // {
-              //  "userId": 3,
-              //  "description": "Saepe ex sapiente deserunt et voluptas fugiat vero quasi. Ipsam est non ipsa. Occaecati rerum ipsa consequuntur. Ratione commodi unde sint non rerum. Sit quia et aut sunt.",
-              //  "emergency": false,
-              //  "dateCompleted": "Fri Apr 29 2022 14:02:20 GMT-0500 (Central Daylight Time)"
-            // }
-        
-        const ticketToSendToAPI = {
-            userId: honeyUserObject.id,
-            description: ticket.description,
-            emergency: ticket.emergency,
-            dateCompleted: ""
+        const placeToSendToAPI = {
+            userId: userObject.id,
+            visited: false,
+            placeName: place.placeName,
+            address: place.address,
+            comment: place.comment,
+            goAgain: false,
+            categoryId: parseInt(place.categoryId),
+            recommend: false,
+            recommendId: 0
         }
 
         // TODO: Perform the fetch() to POST the object to the API
-        return fetch('http://localhost:8088/serviceTickets', {
+        return fetch('http://localhost:8088/places', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(ticketToSendToAPI)
+            body: JSON.stringify(placeToSendToAPI)
         })
             .then(response => response.json())
             .then(() => {
-                navigate("/tickets")
+                navigate("/places")
             })
     }
     
 
     return (
-        <form className="ticketForm">
-            <h2 className="ticketForm__title">New Service Ticket</h2>
+        <form className="placeForm">
+            <h2 className="placeForm__title">New Place to See</h2>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="description">Description:</label>
-                    <input
+                    <label htmlFor="placeName">Name:</label>
+                    <input key={`place--${place.id}`}
                     //* form field for creating ticket
                         required autoFocus
                         type="text"
                         className="form-control"
-                        placeholder="Brief description of problem"
-                        value={ticket.description}
+                        placeholder="Name of place to visit"
+                        value={place.placeName}
                         onChange={
                             (evt) => {
                                 //* first copy existing state
-                                const copy = {...ticket} //* copy with spread operator
+                                const copy = {...place} //* copy with spread operator
                                 //* modify copy
                                 //* new value of description should be current value of input field
                                     //* gotten through change event
-                                copy.description = evt.target.value
+                                copy.placeName = evt.target.value
                                 //* then need to update the state, pass copy back to be new state
                                 update(copy)
                             }
@@ -86,24 +99,88 @@ export const PlacesForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="name">Emergency:</label>
-                    <input type="checkbox"
-                    //* form field for check if emergency
-                        value={ticket.emergency}
+                    <label htmlFor="address">Address:</label>
+                    <input key={`place--${place.id}`}
+                        required autoFocus
+                        type="text"
+                        className="form-control"
+                        placeholder="Where is it located?"
+                        value={place.address}
                         onChange={
                             (evt) => {
-                                //* cant capture the value, wont work with checkbox, need to use checked
-                                const copy = {...ticket}
-                                copy.emergency = evt.target.checked
+                                const copy = {...place}
+                                copy.address = evt.target.value
                                 update(copy)
                             }
                         } />
                 </div>
             </fieldset>
+            <fieldset className="selectCategory">
+                <label className="categoryLabel" htmlFor="category">Category:</label>
+                {
+                    category.map(
+                        category => {
+                            return <div className="form-group" key={`category--${category.id}`}>
+                                <input 
+                                    onChange={
+                                        (evt) => {
+                                            const copy = structuredClone(place)
+                                            copy.categoryId = evt.target.value
+                                            update(copy)
+                                        }
+                                    } type="checkbox" value={category.id}/> {category.categoryName}
+                            </div>
+                        }
+                    )
+                }
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="comment">Comment:</label>
+                    <input key={`place--${place.id}`}
+                        required autoFocus
+                        type="text"
+                        className="form-control"
+                        placeholder="Why do you want to go?"
+                        value={place.comment}
+                        onChange={
+                            (evt) => {
+                                const copy = {...place}
+                                copy.comment = evt.target.value
+                                update(copy)
+                            }
+                        } />
+                </div>
+            </fieldset>
+            {/* <fieldset>
+                <div className="form-group">
+                    <label htmlFor="goAgain">Go Again?</label>
+                    <input type="radio"
+                        name="goAgain"
+                        value={true}
+                        onChange={
+                            (evt) => {
+                                const copy = {...place}
+                                copy.goAgain = evt.target.value
+                                update(copy)
+                            }
+                        } />Yes
+                    <input type="radio"
+                        name="goAgain"
+                        value={false}
+                        onChange={
+                            (evt) => {
+                                const copy = {...place}
+                                copy.goAgain = evt.target.value
+                                update(copy)
+                            }
+                        } />No
+                </div>
+            </fieldset> */}
             <button
                 onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
                 className="btn btn-primary">
-                Submit Ticket
+                Save Place
             </button>
         </form>
     )
