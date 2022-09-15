@@ -1,6 +1,7 @@
 import { Outlet, Route, Routes } from "react-router-dom"
 import { CategoryForm } from "../categories/categoryForm"
 import { MainPage } from "../MainPage.js/MainPage"
+import { Details } from "../places/Details"
 import { PlacesForm } from "../places/PlacesForm"
 
 export const UserViews = () => {
@@ -15,10 +16,9 @@ export const UserViews = () => {
                 </>
             }>
                 <Route path="mainPage" element={ < MainPage/> } />
-                <Route path="editPlace" element={ <></> } />
+                <Route path="detailsPage/:placeId" element={ < Details /> } />
                 <Route path="categoryForm" element={ < CategoryForm /> } />
                 <Route path="placeForm" element={ < PlacesForm/> } />
-                <Route path="logOut" element={ <></> } />
                 <Route path="recommended" element={ <></> } />
             </Route>
         </Routes>

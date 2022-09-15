@@ -65,7 +65,7 @@ export const PlacesForm = () => {
         })
             .then(response => response.json())
             .then(() => {
-                navigate("/places")
+                navigate("/mainPage")
             })
     }
     
@@ -76,7 +76,7 @@ export const PlacesForm = () => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="placeName">Name:</label>
-                    <input key={`place--${place.id}`}
+                    <input 
                     //* form field for creating ticket
                         required autoFocus
                         type="text"
