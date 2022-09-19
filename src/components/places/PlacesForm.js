@@ -2,10 +2,6 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 export const PlacesForm = () => {
-    /*
-        TODO: Add the correct default properties to the
-        initial state object
-    */
 
 //* for each form field, set up default values in initial state
     //* properties here will be updated each time the user interacts with description and emergency value
@@ -31,8 +27,7 @@ export const PlacesForm = () => {
         }, []
     )
     /*
-        TODO: Use the useNavigation() hook so you can redirect
-        the user to the ticket list
+        TODO: redirect the user to the ticket list
     */
    const navigate = useNavigate()
 
@@ -65,7 +60,7 @@ export const PlacesForm = () => {
         })
             .then(response => response.json())
             .then(() => {
-                navigate("/mainPage")
+                navigate(`/mainPage/${userObject.id}`)
             })
     }
     
@@ -102,7 +97,7 @@ export const PlacesForm = () => {
                     <label htmlFor="address">Address:</label>
                     <input key={`place--${place.id}`}
                         required autoFocus
-                        type="text"
+                        type="textarea"
                         className="form-control"
                         placeholder="Where is it located?"
                         value={place.address}
@@ -119,7 +114,9 @@ export const PlacesForm = () => {
                 <label className="categoryLabel" htmlFor="category">Category:</label>
                 {
                     category.map(
+                        //* if condition that if specific user is logged in, only show their categories
                         category => {
+                            if (category.userId === userObject.id) {
                             return <div className="form-group" key={`category--${category.id}`}>
                                 <input 
                                     onChange={
@@ -129,7 +126,7 @@ export const PlacesForm = () => {
                                             update(copy)
                                         }
                                     } type="checkbox" value={category.id}/> {category.categoryName}
-                            </div>
+                            </div>}
                         }
                     )
                 }
@@ -152,31 +149,6 @@ export const PlacesForm = () => {
                         } />
                 </div>
             </fieldset>
-            {/* <fieldset>
-                <div className="form-group">
-                    <label htmlFor="goAgain">Go Again?</label>
-                    <input type="radio"
-                        name="goAgain"
-                        value={true}
-                        onChange={
-                            (evt) => {
-                                const copy = {...place}
-                                copy.goAgain = evt.target.value
-                                update(copy)
-                            }
-                        } />Yes
-                    <input type="radio"
-                        name="goAgain"
-                        value={false}
-                        onChange={
-                            (evt) => {
-                                const copy = {...place}
-                                copy.goAgain = evt.target.value
-                                update(copy)
-                            }
-                        } />No
-                </div>
-            </fieldset> */}
             <button
                 onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
                 className="btn btn-primary">
