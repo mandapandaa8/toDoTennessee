@@ -8,26 +8,26 @@ export const NavBar = () => {
     const userObject = JSON.parse(toDoUser)
 
     return (
-        <ul className="navbar">
-            <li className="navbar__item active">
+        <div class="container amber pullLeft">
+            <a className="navbar__item active">
                 <Link className="navbar__link" to={`/mainPage/${userObject.id}`}>Main Page</Link>
-            </li>
-            <li className="navbar__item active">
+            </a>
+            <a className="navbar__item active">
                 <Link className="navbar__link" to="/categoryForm">Create Category</Link>
-            </li>
-            <li className="navbar__item active">
+            </a>
+            <a className="navbar__item active">
                 <Link className="navbar__link" to="/placeForm">Create Place</Link>
-            </li>
+            </a>
             {
                 localStorage.getItem("toDo_user")
-                    ? <li className="navbar__item navbar__logout">
+                    ? <a className="navbar__item navbar__logout">
                         <Link className="__link" to="" onClick={() => {
                             localStorage.removeItem("toDo_user")
-                            navigate("/", {replace: true})
+                            navigate("/", { replace: true })
                         }}>Logout</Link>
-                    </li>
+                    </a>
                     : ""
             }
-        </ul>
+            </div>
     )
 }

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
+import "./Details.css"
 
 export const Details = () => {
     const [place, setPlace] = useState({})
@@ -23,7 +24,7 @@ export const Details = () => {
             return (
                 <div>Yes!</div>
             )
-            }
+        }
         else {
             return (
                 <div>No!</div>
@@ -35,34 +36,37 @@ export const Details = () => {
         {
             place.visited
                 ? <>
-                    <article>
+                    <article className="placeVisited">
 
                         <h2 className="category_header">Category: {place?.category?.categoryName}</h2>
                         <h2 className="placeDetails_header">Place: {place?.placeName}</h2>
 
-                        <div className="comment">What did you think? {place.comment}</div>
+                        <p className="detailsComment">What did you think? <br />
+                        <div className="inputComment">{place.comment}</div></p>
 
-                        <div className="address">Where: {place.address}</div>
+                        <p className="detailsAddress">Where: <br />
+                        <div className="inputAddress">{place.address}</div></p>
 
-                        <div className="goAgain">Go again: {goAgain()}</div>
+                        <p className="goAgainDetails">Go again: <br />
+                        <div className="inputAgain">{goAgain()}</div></p>
 
 
                     </article>
                 </>
                 : <>
-                    <article>
+                    <article className="notVisited">
 
                         <h2 className="category_header">Category: {place?.category?.categoryName}</h2>
                         <h2 className="placeDetails_header">Place: {place?.placeName}</h2>
 
-                        <div className="comment">Why do you want to go? {place.comment}</div>
+                        <p className="detailsComment">Why do you want to go? <br />
+                        <div className="inputComment">{place.comment}</div></p>
 
-                        <div className="address">Where: {place.address}</div>
+                        <p className="detailsAddress">Where: <br />
+                        <div className="inputAddress">{place.address}</div></p>
 
-
+                        <button className="button-55" onClick={() => Navigate(`/editDetails/${place.id}`)}>Been There?</button>
                     </article>
-
-                    <button onClick={() => Navigate(`/editDetails/${place.id}`)}>Been There?</button>
                 </>
 
         }

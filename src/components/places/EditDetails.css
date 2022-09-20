@@ -1,0 +1,13 @@
+.editDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("/src/paperbacklight.png");
+    background-size: cover;
+    border-radius: 0.4rem;
+    box-shadow: 0.5rem 0.5rem 1rem rgba(9, 8, 8, 0.546);
+    background-repeat: no-repeat;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-bottom: 80px;
+}

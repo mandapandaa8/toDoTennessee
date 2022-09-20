@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css?family=Specimen|Lobster");
+@import url("https://fonts.googleapis.com/css?family=Specimen|Pacifico");
+
+.toDo_title {
+  background-image: url("/src/tnpostcard.jpg");
+  background-repeat: no-repeat;
+  font-size: 75px;
+  text-shadow: 1px 0px 1px #CE5937, 0px 1px 1px #000000, 2px 1px 1px #da4c37, 1px 2px 1px #000000, 3px 2px 1px #de6f4e, 2px 3px 1px #000000, 4px 3px 1px #e09953, 3px 4px 1px #000000, 5px 4px 1px #e09953, 4px 5px 1px #000000, 6px 5px 1px #FFA595, 5px 6px 1px #EEEEEE, 7px 6px 1px #CCCCCC;
+  color: #b5c4ad;
+  font-family: Lobster;
+  height: 450px;
+  background-size: 90%;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0 0 85% 85% / 30%;
+}
+
+.personal {
+  font-family: Pacifico;
+  text-shadow: 1px 0px 1px #CE5937, 0px 1px 1px #000000, 2px 1px 1px #da4c37, 1px 2px 1px #000000, 3px 2px 1px #de6f4e, 2px 3px 1px #000000, 4px 3px 1px #e09953, 3px 4px 1px #000000, 5px 4px 1px #e09953, 4px 5px 1px #000000, 6px 5px 1px #FFA595, 5px 6px 1px #EEEEEE, 7px 6px 1px #CCCCCC;
+  color: #b5c4ad;
+  font-size: 30px;
+}

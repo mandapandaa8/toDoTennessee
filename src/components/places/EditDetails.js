@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
-import { useNavigate, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
+import "./EditDetails.css"
 
 export const EditDetails = () => {
     const [details, updateDetails] = useState({
@@ -13,7 +14,7 @@ export const EditDetails = () => {
         categoryId: 0,
     })
 
-    const {placeId} = useParams()
+    const { placeId } = useParams()
 
     const [feedback, setFeedback] = useState("")
 
@@ -57,82 +58,84 @@ export const EditDetails = () => {
 
     return (
         <>
-            <div className={`${feedback.includes("Error") ? "error" : "feedback"} ${feedback === "" ? "invisible" : "visible"}`}>
-                {feedback}
-            </div>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="visited">Did you go?</label>
-                    <input type="radio"
-                        name="visited"
-                        value="true"
-                        onChange={
-                            (evt) => {
-                                const copy = { ...details }
-                                copy.visited = evt.target.value
-                                updateDetails(copy)
-                            }
-                        } />Yes
-                    <input type="radio"
-                        name="visited"
-                        value={false}
-                        onChange={
-                            (evt) => {
-                                const copy = { ...details }
-                                copy.visited = evt.target.value
-                                updateDetails(copy)
-                            }
-                        } />No
+            <form className="editDetails">
+                <div className={`${feedback.includes("Error") ? "error" : "feedback"} ${feedback === "" ? "invisible" : "visible"}`}>
+                    {feedback}
                 </div>
-            </fieldset>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="comment">Comment:</label>
-                    <input
-                        required autoFocus
-                        type="textarea"
-                        className="form-control"
-                        placeholder="What did you think?"
-                        value={details.comment}
-                        onChange={
-                            (evt) => {
-                                const copy = { ...details }
-                                copy.comment = evt.target.value
-                                updateDetails(copy)
-                            }
-                        } />
-                </div>
-            </fieldset>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="goAgain">Go Again?</label>
-                    <input type="radio"
-                        name="goAgain"
-                        value="true"
-                        onChange={
-                            (evt) => {
-                                const copy = { ...details }
-                                copy.goAgain = evt.target.value
-                                updateDetails(copy)
-                            }
-                        } />Yes
-                    <input type="radio"
-                        name="goAgain"
-                        value={false}
-                        onChange={
-                            (evt) => {
-                                const copy = { ...details }
-                                copy.goAgain = evt.target.value
-                                updateDetails(copy)
-                            }
-                        } />No
-                </div>
-            </fieldset>
-            <button
-                onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
-                className="btn btn-primary">
-                Save Place
-            </button>
+                <fieldset>
+                    <div className="form-group">
+                        <label htmlFor="visited">Did you go?</label>
+                        <input type="radio"
+                            name="visited"
+                            value="true"
+                            onChange={
+                                (evt) => {
+                                    const copy = { ...details }
+                                    copy.visited = evt.target.value
+                                    updateDetails(copy)
+                                }
+                            } />Yes
+                        <input type="radio"
+                            name="visited"
+                            value={false}
+                            onChange={
+                                (evt) => {
+                                    const copy = { ...details }
+                                    copy.visited = evt.target.value
+                                    updateDetails(copy)
+                                }
+                            } />No
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div className="form-group">
+                        <label htmlFor="comment">Comment:</label>
+                        <input
+                            required autoFocus
+                            type="textarea"
+                            className="form-control"
+                            placeholder="What did you think?"
+                            value={details.comment}
+                            onChange={
+                                (evt) => {
+                                    const copy = { ...details }
+                                    copy.comment = evt.target.value
+                                    updateDetails(copy)
+                                }
+                            } />
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div className="form-group">
+                        <label htmlFor="goAgain">Go Again?</label>
+                        <input type="radio"
+                            name="goAgain"
+                            value="true"
+                            onChange={
+                                (evt) => {
+                                    const copy = { ...details }
+                                    copy.goAgain = evt.target.value
+                                    updateDetails(copy)
+                                }
+                            } />Yes
+                        <input type="radio"
+                            name="goAgain"
+                            value={false}
+                            onChange={
+                                (evt) => {
+                                    const copy = { ...details }
+                                    copy.goAgain = evt.target.value
+                                    updateDetails(copy)
+                                }
+                            } />No
+                    </div>
+                </fieldset>
+                <button
+                    onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
+                    className="button-55">
+                    Save Place
+                </button>
+            </form>
         </>
     )
 

@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css?family=Specimen|Fugaz+One");
+@import url("https://fonts.googleapis.com/css?family=Specimen|Notable");
+@import url("https://fonts.googleapis.com/css?family=Specimen|Nothing+You+Could+Do");
+
+.category_title {
+    font-family: Fugaz One;
+    font-size: 20px;
+}
+
+.place_list {
+    font-family: Nothing You Could Do;
+    font-size: 18px;
+}
+
+.button-55 {
+    align-self: center;
+    background-color: #f2d867;
+    background-image: none;
+    background-position: 0 90%;
+    background-repeat: repeat no-repeat;
+    background-size: 4px 3px;
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: #8f4f28 15px 28px 25px -18px;
+    box-sizing: border-box;
+    color: #8f4f28;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Notable;
+    font-size: 1rem;
+    line-height: 23px;
+    outline: none;
+    padding: .75rem;
+    text-decoration: none;
+    transition: all 235ms ease-in-out;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin-bottom: 50px;
+}
+
+.button-55:hover {
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+    transform: translate3d(0, 2px, 0);
+}
+
+.button-55:focus {
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+}
+
+.mainPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("/src/paperbacklight.png");
+    background-size: cover;
+    border-radius: 0.4rem;
+    box-shadow: 0.5rem 0.5rem 1rem rgba(9, 8, 8, 0.546);
+    background-repeat: no-repeat;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-bottom: 80px;
+}
