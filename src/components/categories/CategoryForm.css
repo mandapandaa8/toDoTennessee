@@ -1,8 +1,7 @@
-@import url("https://fonts.googleapis.com/css?family=Specimen|Fugaz+One");
-@import url("https://fonts.googleapis.com/css?family=Specimen|Notable");
 @import url("https://fonts.googleapis.com/css?family=Specimen|Ultra");
+@import url("https://fonts.googleapis.com/css?family=Specimen|Fugaz+One");
 
-.placeForm {
+.categoryForm {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,18 +15,14 @@
     margin-bottom: 80px;
 }
 
-.placeHeader {
+.categoryForm_title {
     font-family: Ultra;
+    font-size: 20px;
     color: #000000;
     text-shadow: 2px 2px 0 #FFFFFF, 2px -2px 0 #FFFFFF, -2px 2px 0 #FFFFFF, -2px -2px 0 #FFFFFF, 2px 0px 0 #FFFFFF, 0px 2px 0 #FFFFFF, -2px 0px 0 #FFFFFF, 0px -2px 0 #FFFFFF;
 }
 
-.placeName, .placeAddress, .placeComment, .categoryLabel {
+.name {
     font-family: Fugaz One;
-    font-size: 20px;
-}
-
-.checkCategory {
-    font-family: Nothing You Could Do;
     font-size: 18px;
 }

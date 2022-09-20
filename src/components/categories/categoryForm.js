@@ -4,6 +4,7 @@
 
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import "./CategoryForm.css"
 
 export const CategoryForm = () => {
     const [category, setCategory] = useState({
@@ -53,12 +54,12 @@ export const CategoryForm = () => {
             <h2 className="categoryForm_title">Add New Category</h2>
             <fieldset>
                 <div className="from-group">
-                    <label htmlFor="name">Category Name:</label>
+                    <label className="name" htmlFor="name">Category Name:</label>
                     <input
                         required autoFocus
-                        type="text"
+                        type="textarea"
                         className="form-control"
-                        placeholder="Category name goes here"
+                        placeholder="Name"
                         value={category.name}
                         onChange={
                             (evt) => {
@@ -67,12 +68,11 @@ export const CategoryForm = () => {
                                 setCategory(copy)
                             }
                         } />
-
                 </div>
             </fieldset>
             <button
                 onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
-                className="btn btn-primary">
+                class="button-55">
                 Save Category
             </button>
         </form>

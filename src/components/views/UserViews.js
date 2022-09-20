@@ -4,14 +4,15 @@ import { MainPage } from "../MainPage.js/MainPage"
 import { Details } from "../places/Details"
 import { EditDetails } from "../places/EditDetails"
 import { PlacesForm } from "../places/PlacesForm"
+import "./UserViews.css"
 
 export const UserViews = () => {
     return (
         <Routes>
             <Route path="/" element={
                 <>
-                    <h1>To Do: Tennessee</h1>
-                    <h2>Your personalized TO DO list for the greater Tennessee</h2>
+                    <h1 class="toDo_title">To Do: Tennessee</h1>
+                    <h2 class="personal">Your personalized TO DO list for the greater Tennessee</h2>
 
                     <Outlet />
                 </>
