@@ -1,4 +1,5 @@
-.h1, h1 {
+.h1,
+h1 {
     font-size: 2.5rem;
 }
 
@@ -15,7 +16,7 @@ fieldset {
     text-align: left;
 }
 
-.form--login > fieldset > input[type="email"] {
+.form--login>fieldset>input[type="email"] {
     width: 25em;
 }
 
@@ -37,22 +38,13 @@ fieldset {
     background-clip: padding-box;
     border: 1px solid #ced4da;
     border-radius: .25rem;
-    -webkit-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    -webkit-transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    font-family: Nothing You Could Do;
 }
 
 .container--login {
     text-align: center;
-}
-
-.form--login {
-    background-position-x: right;
-    z-index: 1;
-    min-height: 25rem;
-    min-width: 45rem;
-    background-color: hsla(0,0%,100%,0.40);
-    background-blend-mode: overlay;
-    background-repeat: no-repeat;
 }
 
 .button--close {
@@ -60,3 +52,39 @@ fieldset {
     bottom: -2rem;
 }
 
+.logInHeader {
+    background-image: url("/src/tnpostcard.jpg");
+    background-repeat: no-repeat;
+    font-size: 75px;
+    text-shadow: 1px 0px 1px #CE5937, 0px 1px 1px #000000, 2px 1px 1px #da4c37, 1px 2px 1px #000000, 3px 2px 1px #de6f4e, 2px 3px 1px #000000, 4px 3px 1px #e09953, 3px 4px 1px #000000, 5px 4px 1px #e09953, 4px 5px 1px #000000, 6px 5px 1px #FFA595, 5px 6px 1px #EEEEEE, 7px 6px 1px #CCCCCC;
+    color: #b5c4ad;
+    font-family: Lobster;
+    height: 450px;
+    background-size: 90%;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0 0 85% 85% / 30%;
+    width: 14em;
+}
+
+.form--login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-bottom: 80px;
+}
+
+.registerHeader, .signIn {
+    font-family: Ultra;
+    color: #000000;
+    text-shadow: 2px 2px 0 #FFFFFF, 2px -2px 0 #FFFFFF, -2px 2px 0 #FFFFFF, -2px -2px 0 #FFFFFF, 2px 0px 0 #FFFFFF, 0px 2px 0 #FFFFFF, -2px 0px 0 #FFFFFF, 0px -2px 0 #FFFFFF;
+}
+
+.inputLogInEmail, .inputRegister {
+    font-family: Fugaz One;
+    font-size: 20px;
+}

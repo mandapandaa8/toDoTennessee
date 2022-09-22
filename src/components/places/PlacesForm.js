@@ -136,7 +136,7 @@ export const PlacesForm = () => {
             <fieldset>
                 <div className="form-group">
                     <label className="placeComment" htmlFor="comment">Comment:</label>
-                    <input key={`place--${place.id}`}
+                    <textarea key={`place--${place.id}`}
                         required autoFocus
                         type="text"
                         className="form-control"
