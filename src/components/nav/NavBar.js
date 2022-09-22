@@ -10,7 +10,7 @@ export const NavBar = () => {
     return (
         <div class="container amber pullLeft">
             <a className="navbar__item active">
-                <Link className="navbar__link" to={`/mainPage/${userObject.id}`}>Main Page</Link>
+                <Link className="navbar__link" to={`/mainPage/${userObject.id}`}>My List</Link>
             </a>
             <a className="navbar__item active">
                 <Link className="navbar__link" to="/categoryForm">Create Category</Link>

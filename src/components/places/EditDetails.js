@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import "./EditDetails.css"
 
 export const EditDetails = () => {
@@ -16,14 +16,7 @@ export const EditDetails = () => {
 
     const { placeId } = useParams()
 
-    const [feedback, setFeedback] = useState("")
-
-    useEffect(() => {
-        if (feedback !== "") {
-            // Clear feedback to make entire element disappear after 3 seconds
-            setTimeout(() => setFeedback(""), 3000);
-        }
-    }, [feedback])
+    const navigate = useNavigate()
 
     useEffect(
         () => {
@@ -50,8 +43,11 @@ export const EditDetails = () => {
             body: JSON.stringify(details)
         })
             .then(response => response.json())
+            // .then(() => {
+            //     setFeedback(`${details.placeName} successfully updated`)
+            // })
             .then(() => {
-                setFeedback(`${details.placeName} successfully updated`)
+                navigate(`/detailsPage/${details.id}`)
             })
     }
 
@@ -59,13 +55,14 @@ export const EditDetails = () => {
     return (
         <>
             <form className="editDetails">
-                <div className={`${feedback.includes("Error") ? "error" : "feedback"} ${feedback === "" ? "invisible" : "visible"}`}>
+                <h1 className="editDetailsHeader">{details.placeName}</h1>
+                {/* <div className={`${feedback.includes("Error") ? "error" : "feedback"} ${feedback === "" ? "invisible" : "visible"}`}>
                     {feedback}
-                </div>
+                </div> */}
                 <fieldset>
                     <div className="form-group">
-                        <label htmlFor="visited">Did you go?</label>
-                        <input type="radio"
+                        <label className="editVisited" htmlFor="visited">Did you go?</label>
+                        <div className="radioResponse" ><input type="radio"
                             name="visited"
                             value="true"
                             onChange={
@@ -74,8 +71,8 @@ export const EditDetails = () => {
                                     copy.visited = evt.target.value
                                     updateDetails(copy)
                                 }
-                            } />Yes
-                        <input type="radio"
+                            } />Yes</div>
+                        <div className="radioResponse"><input type="radio"
                             name="visited"
                             value={false}
                             onChange={
@@ -84,13 +81,13 @@ export const EditDetails = () => {
                                     copy.visited = evt.target.value
                                     updateDetails(copy)
                                 }
-                            } />No
+                            } />No</div>
                     </div>
                 </fieldset>
                 <fieldset>
                     <div className="form-group">
-                        <label htmlFor="comment">Comment:</label>
-                        <input
+                        <label className="editDetailsComment" htmlFor="comment">Comment:</label>
+                        <textarea
                             required autoFocus
                             type="textarea"
                             className="form-control"
@@ -107,8 +104,8 @@ export const EditDetails = () => {
                 </fieldset>
                 <fieldset>
                     <div className="form-group">
-                        <label htmlFor="goAgain">Go Again?</label>
-                        <input type="radio"
+                        <label class="editGoAgain" htmlFor="goAgain">Go Again?</label>
+                        <div className="radioResponse"><input type="radio"
                             name="goAgain"
                             value="true"
                             onChange={
@@ -117,8 +114,8 @@ export const EditDetails = () => {
                                     copy.goAgain = evt.target.value
                                     updateDetails(copy)
                                 }
-                            } />Yes
-                        <input type="radio"
+                            } />Yes</div>
+                        <div className="radioResponse"><input type="radio"
                             name="goAgain"
                             value={false}
                             onChange={
@@ -127,7 +124,7 @@ export const EditDetails = () => {
                                     copy.goAgain = evt.target.value
                                     updateDetails(copy)
                                 }
-                            } />No
+                            } />No</div>
                     </div>
                 </fieldset>
                 <button
