@@ -1,8 +1,3 @@
-.h1,
-h1 {
-    font-size: 2.5rem;
-}
-
 fieldset {
     min-width: 0;
     padding: 1rem 0;
@@ -14,6 +9,12 @@ fieldset {
     display: inline-block;
     margin: 0 auto;
     text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-bottom: 80px;
 }
 
 .form--login>fieldset>input[type="email"] {
@@ -69,19 +70,11 @@ fieldset {
     width: 14em;
 }
 
-.form--login {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-left: 200px;
-    margin-right: 200px;
-    margin-bottom: 80px;
-}
-
 .registerHeader, .signIn {
     font-family: Ultra;
     color: #000000;
     text-shadow: 2px 2px 0 #FFFFFF, 2px -2px 0 #FFFFFF, -2px 2px 0 #FFFFFF, -2px -2px 0 #FFFFFF, 2px 0px 0 #FFFFFF, 0px 2px 0 #FFFFFF, -2px 0px 0 #FFFFFF, 0px -2px 0 #FFFFFF;
+    font-size: 20px;
 }
 
 .inputLogInEmail, .inputRegister {

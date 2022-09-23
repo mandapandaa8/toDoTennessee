@@ -12,6 +12,7 @@ export const EditDetails = () => {
         goAgain: false,
         userId: 0,
         categoryId: 0,
+        recommend: false,
     })
 
     const { placeId } = useParams()
@@ -34,18 +35,26 @@ export const EditDetails = () => {
         event.preventDefault()
         details.visited = details.visited === "true"
         details.goAgain = details.goAgain === "true"
+        details.recommend = details.recommend === "true"
+        const detail = {
+            visited: details.visited,
+            placeName: details.placeName,
+            address: details.address,
+            comment: details.comment,
+            goAgain: details.goAgain,
+            userId: details.userId,
+            categoryId: details.categoryId,
+            recommend: details.recommend
+        }
         // TODO: Perform the fetch() to POST the object to the API
         return fetch(`http://localhost:8088/places/${details.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(details)
+            body: JSON.stringify(detail)
         })
             .then(response => response.json())
-            // .then(() => {
-            //     setFeedback(`${details.placeName} successfully updated`)
-            // })
             .then(() => {
                 navigate(`/detailsPage/${details.id}`)
             })
@@ -56,14 +65,10 @@ export const EditDetails = () => {
         <>
             <form className="editDetails">
                 <h1 className="editDetailsHeader">{details.placeName}</h1>
-                {/* <div className={`${feedback.includes("Error") ? "error" : "feedback"} ${feedback === "" ? "invisible" : "visible"}`}>
-                    {feedback}
-                </div> */}
                 <fieldset>
                     <div className="form-group">
                         <label className="editVisited" htmlFor="visited">Did you go?</label>
                         <div className="radioResponse" ><input type="radio"
-                            name="visited"
                             value="true"
                             onChange={
                                 (evt) => {
@@ -73,7 +78,6 @@ export const EditDetails = () => {
                                 }
                             } />Yes</div>
                         <div className="radioResponse"><input type="radio"
-                            name="visited"
                             value={false}
                             onChange={
                                 (evt) => {
@@ -104,9 +108,8 @@ export const EditDetails = () => {
                 </fieldset>
                 <fieldset>
                     <div className="form-group">
-                        <label class="editGoAgain" htmlFor="goAgain">Go Again?</label>
+                        <label className="editGoAgain" htmlFor="goAgain">Go Again?</label>
                         <div className="radioResponse"><input type="radio"
-                            name="goAgain"
                             value="true"
                             onChange={
                                 (evt) => {
@@ -116,12 +119,34 @@ export const EditDetails = () => {
                                 }
                             } />Yes</div>
                         <div className="radioResponse"><input type="radio"
-                            name="goAgain"
                             value={false}
                             onChange={
                                 (evt) => {
                                     const copy = { ...details }
                                     copy.goAgain = evt.target.value
+                                    updateDetails(copy)
+                                }
+                            } />No</div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div className="form-group">
+                        <label class="recommendEdit" htmlFor="recommendEdit">Do you recommend?</label>
+                        <div className="radioResponse"><input type="radio"
+                            value="true"
+                            onChange={
+                                (evt) => {
+                                    const copy = { ...details }
+                                    copy.recommend = evt.target.value
+                                    updateDetails(copy)
+                                }
+                            } />Yes</div>
+                        <div className="radioResponse"><input type="radio"
+                            value={false}
+                            onChange={
+                                (evt) => {
+                                    const copy = { ...details }
+                                    copy.recommend = evt.target.value
                                     updateDetails(copy)
                                 }
                             } />No</div>

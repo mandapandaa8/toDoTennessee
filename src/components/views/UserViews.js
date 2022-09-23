@@ -4,6 +4,7 @@ import { MainPage } from "../MainPage.js/MainPage"
 import { Details } from "../places/Details"
 import { EditDetails } from "../places/EditDetails"
 import { PlacesForm } from "../places/PlacesForm"
+import { Recommended } from "../Recommended/Recommended"
 import "./UserViews.css"
 
 export const UserViews = () => {
@@ -11,18 +12,18 @@ export const UserViews = () => {
         <Routes>
             <Route path="/" element={
                 <>
-                    <h1 class="toDo_title">To Do: Tennessee</h1>
-                    <h2 class="personal">Your personalized TO DO list for the greater Tennessee</h2>
+                    <h1 className="toDo_title">To Do: Tennessee</h1>
+                    <h2 className="personal">Your personalized TO DO list for the greater Tennessee</h2>
 
                     <Outlet />
                 </>
             }>
-                <Route path="mainPage/:userId" element={ < MainPage/> } />
-                <Route path="detailsPage/:placeId" element={ < Details /> } />
-                <Route path="categoryForm" element={ < CategoryForm /> } />
-                <Route path="placeForm" element={ < PlacesForm/> } />
-                <Route path="editDetails/:placeId" element={ < EditDetails/> } />
-                <Route path="recommended" element={ <></> } />
+                <Route path="mainPage/:userId" element={< MainPage />} />
+                <Route path="detailsPage/:placeId" element={< Details />} />
+                <Route path="categoryForm" element={< CategoryForm />} />
+                <Route path="placeForm" element={< PlacesForm />} />
+                <Route path="editDetails/:placeId" element={< EditDetails />} />
+                <Route path="recommended" element={< Recommended />} />
             </Route>
         </Routes>
     )

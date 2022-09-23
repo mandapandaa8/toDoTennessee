@@ -13,8 +13,9 @@ export const PlacesForm = () => {
         address: "",
         comment: "",
         goAgain: false,
+        recommend: false,
         userId: 0,
-        categoryId: 0,
+        categoryId: 0
     })
     const [category, setCategory] = useState([])
 
@@ -46,9 +47,8 @@ export const PlacesForm = () => {
             address: place.address,
             comment: place.comment,
             goAgain: false,
-            categoryId: parseInt(place.categoryId),
             recommend: false,
-            recommendId: 0
+            categoryId: parseInt(place.categoryId)
         }
 
         // TODO: Perform the fetch() to POST the object to the API
