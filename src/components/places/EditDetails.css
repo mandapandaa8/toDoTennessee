@@ -18,7 +18,7 @@
     text-shadow: 2px 2px 0 #FFFFFF, 2px -2px 0 #FFFFFF, -2px 2px 0 #FFFFFF, -2px -2px 0 #FFFFFF, 2px 0px 0 #FFFFFF, 0px 2px 0 #FFFFFF, -2px 0px 0 #FFFFFF, 0px -2px 0 #FFFFFF;
 }
 
-.editVisited, .editDetailsComment, .editGoAgain {
+.editVisited, .editDetailsComment, .editGoAgain, .recommendEdit {
     display: flex;
     flex-direction: column;
     align-items: center;

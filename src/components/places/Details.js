@@ -41,14 +41,14 @@ export const Details = () => {
                         <h2 className="category_header">Category: {place?.category?.categoryName}</h2>
                         <h2 className="placeDetails_header">Place: {place?.placeName}</h2>
 
-                        <p className="detailsComment">What did you think? <br />
-                        <div className="inputComment">{place.comment}</div></p>
+                        <div className="detailsComment">What did you think? </div>
+                        <div className="inputDetailsComment">{place.comment}</div>
 
-                        <p className="detailsAddress">Where: <br />
-                        <div className="inputAddress">{place.address}</div></p>
+                        <div className="detailsAddress">Where: </div>
+                        <div className="inputDetailsAddress">{place.address}</div>
 
-                        <p className="goAgainDetails">Go again: <br />
-                        <div className="inputAgain">{goAgain()}</div></p>
+                        <div className="goAgainDetails">Go again: </div>
+                        <div className="inputDetailsAgain">{goAgain()}</div>
 
 
                     </article>
@@ -59,11 +59,11 @@ export const Details = () => {
                         <h2 className="category_header">Category: {place?.category?.categoryName}</h2>
                         <h2 className="placeDetails_header">Place: {place?.placeName}</h2>
 
-                        <p className="detailsComment">Why do you want to go? <br />
-                        <div className="inputComment">{place.comment}</div></p>
+                        <div className="detailsComment">Why do you want to go? </div>
+                        <div className="inputDetailsComment">{place.comment}</div>
 
-                        <p className="detailsAddress">Where: <br />
-                        <div className="inputAddress">{place.address}</div></p>
+                        <div className="detailsAddress">Where: </div>
+                        <div className="inputDetailsAddress">{place.address}</div>
 
                         <button className="button-55" onClick={() => Navigate(`/editDetails/${place.id}`)}>Been There?</button>
                     </article>

@@ -63,7 +63,7 @@ export const MainPage = () => {
                                         (place) => {
                                             if (place.categoryId === category.id)
                                                 return <ul key={`place--${place.id}`}>
-                                                    <header class="place_list">
+                                                    <header className="place_list">
                                                         <button className="deleteButton" value={place.id} onClick={(evt) => deleteButton(evt.target.value)}>🗑</button>
                                                         <Link to={`/detailsPage/${place.id}`}>{place.placeName}</Link>
                                                     </header>
@@ -77,7 +77,7 @@ export const MainPage = () => {
                 )
             }
         </ul>
-        <button class="button-55" onClick={() => Navigate("/categoryForm")}>New Category</button>
-        <button class="button-55" onClick={() => Navigate("/placeForm")}>New Place</button>
+        <button className="button-55" onClick={() => Navigate("/categoryForm")}>New Category</button>
+        <button className="button-55" onClick={() => Navigate("/placeForm")}>New Place</button>
     </article>
 }
