@@ -1,9 +1,11 @@
+@import url("https://fonts.googleapis.com/css?family=Specimen|Lobster");
+
 .placeDetailsHeader {
     display: flex;
     justify-content: center;
 }
 
-.recommended {
+.favorite {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -25,7 +27,7 @@
     margin-bottom: 15px;
 }
 
-.recsHeader {
+.favHeader {
     display: flex;
     justify-content: center;
     font-size: 40px;

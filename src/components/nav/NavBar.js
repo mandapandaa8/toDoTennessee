@@ -21,6 +21,9 @@ export const NavBar = () => {
             <a>
                 <Link to="/recommended">Recommendations</Link>
             </a>
+            <a>
+                <Link to={`/favorite/${userObject.id}`}>❤️</Link>
+            </a>
             {
                 localStorage.getItem("toDo_user")
                     ? <a className="navbar__logout">

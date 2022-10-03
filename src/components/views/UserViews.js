@@ -4,6 +4,7 @@ import { MainPage } from "../MainPage.js/MainPage"
 import { Details } from "../places/Details"
 import { EditDetails } from "../places/EditDetails"
 import { PlacesForm } from "../places/PlacesForm"
+import { Favorite } from "../Recommended/Favorite"
 import { Recommended } from "../Recommended/Recommended"
 import "./UserViews.css"
 
@@ -24,6 +25,7 @@ export const UserViews = () => {
                 <Route path="placeForm" element={< PlacesForm />} />
                 <Route path="editDetails/:placeId" element={< EditDetails />} />
                 <Route path="recommended" element={< Recommended />} />
+                <Route path="favorite/:userId" element={< Favorite />} />
             </Route>
         </Routes>
     )
