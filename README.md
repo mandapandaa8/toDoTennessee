@@ -1,3 +1,7 @@
+To Do Tennessee is a front-end project I created in order to test my skill in JavaScript, HTML, and CSS. You can use this application to create an organized list of places you would like to visit, and the design was inspired by the state of Tennessee. Having recently moved to Nashville, I found myself constantly gaining recommendations for places to see all over the state, and built To Do Tennessee to keep everything all in one place. In this app you can create a category, and add a place to that category. Clicking on the place will navigate you to a page of initial information that you originally filled out, and from there you can edit to update if you'd like to go again and/or if you want to add it to a list of recommendations.
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
